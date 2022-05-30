@@ -1,15 +1,13 @@
 <template>
   <v-app>
-    <div>
+    <nav>
       <v-toolbar dark color="green">
         <v-toolbar-title>
           <nuxt-link to="/">Nodebird</nuxt-link>
         </v-toolbar-title>
-
         <v-spacer></v-spacer>
-        <v-toolbar-items>
-          <v-text-field label="검색" hide-details class="material-icons"/>
-
+        <v-toolbar-items :style="{alignItems:'center'}">
+          <v-text-field label="검색" hide-details prepend-icon="mdi-magnify"/>
           <v-btn text nuxt to="/profile">
             <div>프로필</div>
           </v-btn>
@@ -18,19 +16,24 @@
           </v-btn>
         </v-toolbar-items>
       </v-toolbar>
-    </div>
+    </nav>
+    <v-row no-gutters>
+      <v-col cols="12" md="4">
+        <LoginForm></LoginForm>
+      </v-col>
+      <v-col cols="12" md="8">
+        <nuxt/>
+      </v-col>
+    </v-row>
   </v-app>
-<!--  <div>-->
-<!--    <nav>-->
-<!--      <nuxt-link to="/">Home</nuxt-link>-->
-<!--      <nuxt-link to="/profile">Profile</nuxt-link>-->
-<!--      <nuxt-link to="/signup">Signup</nuxt-link>-->
-<!--    </nav>-->
-<!--    <nuxt/>-->
-<!--  </div>-->
 </template>
 <script>
+import LoginForm from "@/components/LoginForm";
+
 export default{
+  components:{
+    LoginForm
+  },
   data(){
     return{
 

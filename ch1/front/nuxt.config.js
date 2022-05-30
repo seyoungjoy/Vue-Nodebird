@@ -8,10 +8,12 @@ module.exports = {
         '@nuxtjs/axios',
     ],
     buildModules:[
-        `@nuxtjs/vuetify`
+        [`@nuxtjs/vuetify`,{
+            icons: {
+                iconfont: 'md',
+            },
+        }],
     ],
     plugins:[],
-    vuetify:{
 
-    }
 }

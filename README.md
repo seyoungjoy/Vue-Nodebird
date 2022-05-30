@@ -1,5 +1,5 @@
 # Vue-nodebird 강의 메모
-## 1 Nuxt/Vuetify 적용
+## 1 Nuxt 적용
 ### [error] vue package version mismatch
 ```
 - vue@2.6.10
@@ -39,12 +39,28 @@ module.exports = {
 }
 ```
 
-### Vuetify
+## Vuetify
+### [issue] material icon not showing
 
+### 12 grid system
+- 화면 영역을 12등분해서 원하는 column의 비율을 설정할 수 있다.
+- 화면 레이아웃 나눌때 엄청 편할듯
+```jsx
+<nav></nav>
+<v-row>
+    <v-col cols="12" md="4">12컬럼으로 나누고 md size에서는 4/12, 즉 1/3 비율을 컬럼 영역으로 설정.</v-col>
+    <v-col cols="12" md="8">12컬럼으로 나누고 md size에서는 8/12, 즉 3/2 비율을 컬럼 영역으로 설정</v-col>
+</v-row>
+```
+
+### `<v-container></v-container>`
+- 여백 생성
+
+### valid
 
 ## doc
 - vue/nuxt csr/ssr
 - 프리렌더링, 하이드레이션
-
+- https://kr.vuejs.org/v2/guide/class-and-style.html 
 ## Reference
 https://www.bottlehs.com/vue/vue-js-%EC%84%9C%EB%B2%84-%EC%82%AC%EC%9D%B4%EB%93%9C-%EB%A0%8C%EB%8D%94%EB%A7%81/
