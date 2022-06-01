@@ -1,6 +1,6 @@
 # Vue-nodebird 강의 메모
 ## 1 Nuxt 적용
-### [error] vue package version mismatch
+### [issue] vue package version mismatch
 ```
 - vue@2.6.10
 - vue-server-renderer@2.6.14
@@ -41,10 +41,21 @@ module.exports = {
 
 ## Vuetify
 ### [issue] material icon not showing
+1. mdi 설치
+```
+$ npm install @mdi/font -D
+```
+
+2. nuxt.config.js에 css 파일 추가
+```
+css: [
+        '@mdi/font/css/materialdesignicons.css',
+    ],
+```
 
 ### 12 grid system
 - 화면 영역을 12등분해서 원하는 column의 비율을 설정할 수 있다.
-- 화면 레이아웃 나눌때 엄청 편할듯
+- 반응형도 지원.
 ```jsx
 <nav></nav>
 <v-row>
@@ -56,7 +67,90 @@ module.exports = {
 ### `<v-container></v-container>`
 - 여백 생성
 
-### valid
+### form validation
+#### rules
+- 뷰티파이에서는 form validation을 쉽게 구현할 수 있다. rules prop을 통해 input에 폼 검증 조건을 지정할 수 있다.
+- valid 값은 rules의 조건이 모두 충족할 때 자동으로 true값으로 변경된다.
+- valid는 버튼 비활성화 할 때 사용하기 좋음. : `<v-btn :disabled=!valid >제출하기</v-btn>`
+
+```jsx
+//template
+<template>
+  <v-form v-model="valid">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="firstname"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="lastname"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+          <v-btn :disabled=!valid >제출하기</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
+</template>
+```
+```jsx
+//script
+<script>
+  export default {
+    data: () => ({
+      valid: false,
+      firstname: '',
+      lastname: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+    }),
+  }
+</script>
+```
+#### Validation with submit & clear
+- 컴포넌트에 ref 지정 후 form에 접근하여 3가지 함수를 제공한다.
+- form에 ref 지정 : `<v-form ref="form">`
+- `this.$refs.form.validate()` : 모두 input들이 유효한지 아닌지 검증한다. true/false로 반환
+- `this.$refs.form.reset()` : 모든 input과 validation error를 초기화
+- `this.$refs.form.resetValidation()` : input 값만 초기화
+
+
 
 ## doc
 - vue/nuxt csr/ssr
