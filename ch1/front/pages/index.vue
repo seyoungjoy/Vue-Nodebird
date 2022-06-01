@@ -1,14 +1,14 @@
 <template>
   <div>
     <v-container>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
-    <PostCard/>
+      <PostCard />
+      <PostCard />
+      <PostCard />
+      <PostCard />
+      <PostCard />
+      <PostCard />
+      <PostCard />
+      <PostCard />
     </v-container>
   </div>
 </template>
