@@ -155,6 +155,7 @@ css: [
 ## doc
 - vue/nuxt csr/ssr
 - 프리렌더링, 하이드레이션
-- https://kr.vuejs.org/v2/guide/class-and-style.html 
+- https://kr.vuejs.org/v2/guide/class-and-style.html
+- vuex
 ## Reference
 https://www.bottlehs.com/vue/vue-js-%EC%84%9C%EB%B2%84-%EC%82%AC%EC%9D%B4%EB%93%9C-%EB%A0%8C%EB%8D%94%EB%A7%81/
