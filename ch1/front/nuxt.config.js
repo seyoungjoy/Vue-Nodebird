@@ -9,11 +9,12 @@ module.exports = {
     ],
     buildModules:[
         [`@nuxtjs/vuetify`,{
-            icons: {
-                iconfont: 'md',
-            },
+
         }],
     ],
     plugins:[],
+    css: [
+        '@mdi/font/css/materialdesignicons.css',
+    ],
 
 }
